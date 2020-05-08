@@ -1,0 +1,43 @@
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+
+#navbar {
+    background-color: #818081;
+    text-align: center;
+}
+
+#content {
+    margin-top: 30px;   
+}
+
+#left {
+    background-color: blue;
+    text-align: center;
+    float: left;
+    width: 50%;
+    padding-top: 16%;
+    padding-bottom: 16%;
+}
+
+#right {
+    background-color: red;
+    text-align: center;
+    float: right;
+    width: 25%;
+    padding-top: 16%;
+    padding-bottom: 16%;
+}
+
+#footer {
+    background-color: #028000;
+    text-align: center;
+    margin-top: 50%;
+}
