@@ -1,5 +1,6 @@
 html {
     min-height: 100%;
+    width: 100%;
     position: relative;
 }
 
@@ -9,69 +10,204 @@ body {
     margin: 0;
 }
 
-h1, h2, h3 {
+h1, h2 {
     font-family: 'Georgia', Times, Times New Roman, serif;
     color: #4aaaa5;
     font-weight: bold;
+    margin-top: -30px;
+}
+
+h3 {
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    font-size: 14pt;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    color: #ffffff;
+    background-color: #4aaaa5;
+    text-align: center;
+    margin-top: -55px;
 }
 
 p {
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     color: #777777;
-    line-height: 3;
+    line-height: 2;
+    font-size: 14pt;
 }
+
+
 nav {
-    width: 960px;
+    width: 100%;
     background-color: #ffffff;
     border-color: #cccccc;
+    text-align: center;
+    display: inline-block;
+    float: none;
+    border-bottom: solid;
+    border-color: #cccccc;
+    border-width: 2px;
+    height: 70px;
 }
+
+.container {
+    max-width: 960px;
+}
+
 
 nav h2 {
     background-color: #4aaaa5;
     color: #ffffff;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 17px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-top: -10px;
+    margin-left: 0px;
+    width: 250px;
+    font-size: 18pt;
 }
+
+.filler {
+    visibility: hidden;
+    width: 300px;
+}
+
+nav button {
+    align-self: flex-end;
+    margin-right: -15px;
+}
+
+button p {
+    color: #777777;
+    font-size: 14pt;
+}
+
+
+.navc > p {
+    color: #f3f3f3;
+    line-height: 2;
+    font-size: 14pt;
+}
+
 
 img {
     float: left;  
-    padding: 0 10px 0 0;
+    padding-right: 20px;
 }
+
+.card {
+    width: 206px;
+    height: 160px;
+    border-width: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+}
+
+
+
 footer {
     background-color: #666666;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 75px;
     border-top: solid;
     border-color: #4aaaa5;
     border-width:10px;
-    padding-bottom: 10px;
 }
 
 footer p {
     color: #cccccc;
     text-align: center;
-    font-size: 10pt;
-    margin-top: 25px;
+    font-size: 8pt;
+    margin-top: 33px;
+    padding: 0px;
     margin-bottom: 0px;
 }
 
 
 .jumbotron {
-    width: 960px;
+    border-radius:0 !important;
+    margin-top: 30px;
+    max-width: 960px;
+    max-height: 600px;
     background-color: #ffffff;
     color: #dddddd;
+    border-color: #dddddd;
     border: solid;
     border-width:1px;
 }
 
+.portfolio {
+    margin-top: 15px;
+    max-height: 775px;
+}
+
+.contact {
+    max-height: 625px;
+}
 
 hr {
     border-color: #cccccc;
-    border-width: 1px;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    border-width: 3px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.porthr {
+    margin-bottom: 0px;
+}
+
+label {
+    color: #777777;
+}
+
+input {
+    color: #777777;
+    border-radius:0 !important;
+}
+
+#message {
+    height: 200px;
+}
+
+.btn-sm {
+    background-color: #4aaaa5;
+    border-radius:0 !important;
+    border-width: 0;
+    width: 120px;
+    height: 40px;
+}
+
+.btn-sm p {
+    color: #ffffff;
+    margin-top: -3px;
+    position: relative;
+}
+
+/*To ensure that the navbar spacing remains on one line*/
+@media screen and (max-width: 886px) {
+    .filler {
+        width: 0px;
+    }
+}
+
+/*To make sure the jumbotron doesn't get cut off at small widths*/
+@media screen and (max-width: 800px) {
+    .jumbotron {
+        max-height: 2000px;
+    }
+}
+/*To fix issues with short screens*/
+@media screen and (max-height: 750px) {
+    .jumbotron {
+        margin-top: 0px;
+    }
 }

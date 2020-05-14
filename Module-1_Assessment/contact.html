@@ -12,28 +12,34 @@
 </head>
 
 <body>
-    <div class= "container">
-        <nav class="navbar">
+    <nav class="navbar">
+        <div class="container navc">
             <h2>Kelton Holsen</h2>
-            <a href="index.html"><button class="navbar-toggler" type="button">About</button></a>
-            <a href="portfolio.html"><button class="navbar-toggler" type="button">Portfolio</button></a>
-            <a href="contact.html"><button class="navbar-toggler" type="button">Contact</button></a>
-        </nav>
-        <div class="jumbotron">
+            <h2 class="filler"></h2>
+            <a href="index.html"><button class="navbar-toggler" type="button"><p>About</p></button></a>
+            <p>|</p>
+            <a href="portfolio.html"><button class="navbar-toggler" type="button"><p>Portfolio</p></button></a>
+            <p>|</p>
+            <a href="contact.html"><button class="navbar-toggler" type="button"><p>Contact</p></button></a> 
+        </div>  
+    </nav>
+    <div class= "container">
+        <div class="jumbotron contact">
             <h2 class="pageheadersmall">Contact</h2>
+            <hr>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="name" class="form-control" id="name">
+                <input type="name" class="form-control" id="name" value="John Smith">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email">
+                <input type="email" class="form-control" id="email" value="example@gmail.com">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <input type="message" class="form-control" id="message">
+                <textarea type="message" class="form-control" id="message"></textarea>
             </div>  
-            <button type="button" class="btn-default">Submit</button>
+            <button type="button" class="btn btn-primary btn-sm"><p>Submit</p></button>
         </div>
     </div>
     <footer class="page-footer font-small gray">
