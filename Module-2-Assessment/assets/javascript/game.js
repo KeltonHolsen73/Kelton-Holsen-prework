@@ -1,5 +1,5 @@
-const wordlist = ["Cthulhu", "Azathoth", "Nyarthalotep", "Byakhee", "Shoggoth",  "Cultist", "Gla'aki",
-"Innsmouth", "Leng", "Ghoul", "Dagon", "Ghast", "Mi-go", "Nightgaunt", "Hastur", "Yog-sothoth", "Yig"]
+const wordlist = ["cthulhu", "azathoth", "nyarthalotep", "byakhee", "shoggoth",  "cultist", "gla'aki",
+"innsmouth", "leng", "ghoul", "dagon", "ghast", "mi-go", "nightgaunt", "hastur", "yog-sothoth", "yig"]
 const wins = 0; //TODO: track wins
 
 const gameLoop = function() {
@@ -7,10 +7,15 @@ const gameLoop = function() {
     //Generate a word from the list
     var word = wordlist[Math.floor(Math.random() * wordlist.length)];
     //Write out the number of blanks in the word
-    var blanks = "";
+    var wordArray = [];
     for (let i = 0; i < word.length; i++) {
-        blanks += "<p> _ </p>";
+        wordArray.push("_ ");
     }
+    var blanks = "<p>";
+    for (let i = 0; i < word.length; i++) {
+        blanks += "_ ";
+    }
+    blanks += "</p>";
     document.querySelector("#word").innerHTML = blanks;
     //Wait for user input, and then check that key to see if it a) has been pressed and b) is 
     //in the word, then respond appropriately
@@ -18,9 +23,19 @@ const gameLoop = function() {
     var guesses = 13;
     document.querySelector("#guesses").innerHTML = guesses;
     const keyPress = function(event) {
+        var key = event.key
         if (!(guessed.includes(event.key))) { //Don't let them guess a letter they already guessed
-            if(word.includes(event.key)) {
-                
+                //Iterate through the word and replace any blanks with the correct letter
+            for (let i = 0; i < word.length; i++) {
+                if(word.charAt(i) === event.key) {
+                    wordArray[i] = event.key;
+                    blanks = "<p>";
+                    for (let i = 0; i < word.length; i++) {
+                         blanks += wordArray[i];
+                    }
+                    blanks += "</p>";
+                    document.querySelector("#word").innerHTML = blanks;
+                }
             }
             guessed.push(event.key); //put it on the list of used letters
             var guessedString = "";

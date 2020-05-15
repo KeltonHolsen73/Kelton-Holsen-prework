@@ -6,3 +6,4 @@ character, it will count towards your guess count, so don't do that.)
 To play, press a key on your keyboard that corresponds to a letter that you think appears in the word. If
 the letter is there, it will appear in one of the blanks on the screen. Choose carefully, as you only have
 so many guesses! You win if you fill in all the letters before running out of guesses.
+Note that all words, even proper nouns, are in all lowercase for this game's purposes.
