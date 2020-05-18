@@ -3,6 +3,7 @@ const wordlist = ["cthulhu", "azathoth", "nyarthalotep", "byakhee", "shoggoth", 
 var wins = 0; 
 document.querySelector("#wins").innerHTML = wins;
 const gameLoop = function() {
+    //Setup
     document.removeEventListener('keyup', gameLoop);
     //Generate a word from the list
     var word = wordlist[Math.floor(Math.random() * wordlist.length)];
@@ -16,14 +17,17 @@ const gameLoop = function() {
         blanks += "_ ";
     }
     blanks += "</p>";
-    document.querySelector("#word").innerHTML = blanks;
+    document.querySelector("#word").innerHTML = blanks;   
+    var guessed = [];
+    let guesses = 13;
+    var done = false;
+    document.querySelector("#guesses").innerHTML = guesses;
+
+    //Functions
+
     //Wait for user input, and then check that key to see if it a) has been pressed and b) is 
     //in the word, then respond appropriately
-    var guessed = [];
-    var guesses = 13;
-    document.querySelector("#guesses").innerHTML = guesses;
     const keyPress = function(event) {
-        var key = event.key
         if (!(guessed.includes(event.key))) { //Don't let them guess a letter they already guessed
                 //Iterate through the word and replace any blanks with the correct letter
             for (let i = 0; i < word.length; i++) {
@@ -41,35 +45,35 @@ const gameLoop = function() {
             if(!wordArray.includes("_ ")) {
                 wins++;
                 document.querySelector("#wins").innerHTML = wins;
-                //reset a couple things for aesthetic reasons
-                wordArray = [];
-                for (let i = 0; i < word.length; i++) {
-                    wordArray.push("_ ");
-                }
-                guessed = [];
-                document.querySelector("#guesses").innerHTML = 13;
-                document.querySelector("#letters").innerHTML = "";
-                gameLoop();
+                reset();
             }
-            else {
-                guessed.push(event.key); //put it on the list of used letters
-                var guessedString = "";
-                for(let i = 0; i < guessed.length; i++) {
-                    guessedString += "<li>";
-                    guessedString += guessed[i];
-                    guessedString += "</li>";
-                }
-                guesses--;
-                document.querySelector("#guesses").innerHTML = guesses;
-                document.querySelector("#letters").innerHTML = guessedString;
+            guessed.push(event.key); //put it on the list of used letters
+            var guessedString = "";
+            for(let i = 0; i < guessed.length; i++) {
+                guessedString += "<li>";
+                guessedString += guessed[i];
+                guessedString += "</li>";
             }
-            
+            guesses--;
+            document.querySelector("#guesses").innerHTML = guesses;
+            document.querySelector("#letters").innerHTML = guessedString;
+            if(guesses <= 0) {
+                alert("You have run out of guesses! The word was " + word);
+                reset();
+            }
         }
             
     }
+    const reset = function() { //Resets this instance of the game to prepare for the next game loop
+        document.removeEventListener('keyup', keyPress);
+        gameLoop();
+    }
+
+    //The event listener
     document.addEventListener('keyup', keyPress);
+
     
-    
+      
 }
 
-document.addEventListener('keyup', gameLoop);
+document.addEventListener('keyup', gameLoop); //This starts the game
