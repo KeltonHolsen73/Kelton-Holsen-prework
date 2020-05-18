@@ -8,21 +8,25 @@
   <title>Eldritch Hangman</title>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Special+Elite&display=swap" rel="stylesheet">  
 </head>
 
 <body>
-    <h1>Eldritch Hangman</h1>
-    <hr>
-    <h2>Press any key to get started!</h2>
-        <span id="word">
-
-        </span>
+  <audio id="bell"><source src="assets/sounds/bell.mp3" type = "audio/mpeg"></audio>
+  <audio id="scream"><source src="assets/sounds/scream.mp3" type = "audio/mpeg"></audio>
+  <h1>Eldritch Hangman</h1>
+  <div id = "game" align="center">
+    <span id="word"><h2>Press any key to get started!</h2></span>
     <h2>Wins:</h2>
     <span id="wins"></span>
-    <h2>Number of Guesses Remaining</h2>
+    <h2>Number of Guesses Remaining:</h2>
     <span id="guesses"></span>
-    <h2>Letters Already Guessed</h2>
+    <h2>Letters Already Guessed:</h2>
     <ul id="letters"></ul>
+    </div>
+  <div id="attributions">
+    <p style="font-size: 0.9rem;font-style: italic;"><a href="https://www.flickr.com/photos/30036325@N00/74823426">"Cthulhu"</a><span> by <a href="https://www.flickr.com/photos/30036325@N00">BloOwITt</a></span> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/?ref=ccsearch&atype=html" style="margin-right: 5px;">CC BY-NC-ND 2.0</a><a href="https://creativecommons.org/licenses/by-nc-nd/2.0/?ref=ccsearch&atype=html" target="_blank" rel="noopener noreferrer" style="display: inline-block;white-space: none;margin-top: 2px;margin-left: 3px;height: 22px !important;"><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-by_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-nc_icon.svg" /><img style="height: inherit;margin-right: 3px;display: inline-block;" src="https://search.creativecommons.org/static/img/cc-nd_icon.svg" /></a></p>
+  </div>
 </body>
 <script src="assets/javascript/game.js"></script>
 </html>

@@ -43,24 +43,34 @@ const gameLoop = function() {
             }
             //If the word has been finished, start the loop over
             if(!wordArray.includes("_ ")) {
+                var audio = document.getElementById("bell");
+                audio.play();
                 wins++;
                 document.querySelector("#wins").innerHTML = wins;
+                document.querySelector("#letters").innerHTML = "";
+                alert("Correct! The word was " + word);
                 reset();
             }
-            guessed.push(event.key); //put it on the list of used letters
-            var guessedString = "";
-            for(let i = 0; i < guessed.length; i++) {
-                guessedString += "<li>";
-                guessedString += guessed[i];
-                guessedString += "</li>";
+            else {
+                guessed.push(event.key); //put it on the list of used letters
+                var guessedString = "";
+                for(let i = 0; i < guessed.length; i++) {
+                    guessedString += "<li><span>";
+                    guessedString += guessed[i];
+                    guessedString += "</li><span>";
+                }
+                guesses--;
+                document.querySelector("#guesses").innerHTML = guesses;
+                document.querySelector("#letters").innerHTML = guessedString;
+                if(guesses <= 0) {
+                    var audio = document.getElementById("scream");
+                    audio.play();
+                    document.querySelector("#letters").innerHTML = "";
+                    alert("You have run out of guesses! The word was " + word);
+                    reset();
+                }
             }
-            guesses--;
-            document.querySelector("#guesses").innerHTML = guesses;
-            document.querySelector("#letters").innerHTML = guessedString;
-            if(guesses <= 0) {
-                alert("You have run out of guesses! The word was " + word);
-                reset();
-            }
+            
         }
             
     }

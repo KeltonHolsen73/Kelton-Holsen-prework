@@ -1,0 +1,42 @@
+body {
+    height: 100%;
+    background-image: url("../images/background.jpg");
+    background-size: 100%;
+    font-family: 'Special Elite', cursive;
+    color: black;
+}
+
+h1 {
+    font-family: 'Nosifer', cursive;
+    text-align: center;
+    font-size: 5vw;
+    color: darkred;
+}
+
+#game {
+    margin-top: 10%;
+    width: 25%;
+    margin-left: 37%;
+}
+
+ul {
+    margin-left: 40%;
+}
+ 
+li {
+    padding-left: -30em;
+}
+
+li span {
+    display: block;
+    margin-left: -15em;
+}
+
+#attributions {
+    position: fixed;
+    bottom: 0;
+}
+
+a {
+    color: red;
+}
